@@ -5,7 +5,7 @@ class Solution(object):
         :type t: int
         :rtype: str
         """
-        # Step 1: Factorize t into prime factors 2, 3, 5, 7
+        
         temp = t
         counts = {2: 0, 3: 0, 5: 0, 7: 0}
         for p in [2, 3, 5, 7]:
@@ -17,7 +17,7 @@ class Solution(object):
         if temp > 1:
             return "-1"
 
-        # Step 2: Bottom-Up Iterative DP for factors 2 and 3
+       
         # Max required counts for 2 and 3 when t <= 10^14 is around 47 and 30
         max_r2 = counts[2] + 1
         max_r3 = counts[3] + 1
@@ -65,7 +65,7 @@ class Solution(object):
 
         n = len(num)
 
-        # Step 3: Check for zero in num and compute prefix factors
+    
         digit_p = {
             '1': (0, 0, 0, 0), '2': (1, 0, 0, 0), '3': (0, 1, 0, 0),
             '4': (2, 0, 0, 0), '5': (0, 0, 1, 0), '6': (1, 1, 0, 0),
@@ -84,7 +84,7 @@ class Solution(object):
 
         max_prefix = first_zero_idx if first_zero_idx != -1 else n
 
-        # Step 4: Try prefix matching of length n
+        
         for i in range(max_prefix, -1, -1):
             cur_2, cur_3, cur_5, cur_7 = pref_factors[i]
             
@@ -107,7 +107,7 @@ class Solution(object):
                     prefix = num[:i] + (d_ch if i < n else "")
                     return prefix + suffix
 
-        # Step 5: If no solution of length `n`, construct minimal solution longer than `n`
+        
         needed_23 = get_best_23(counts[2], counts[3])
         needed_len = len(needed_23) + counts[5] + counts[7]
         target_len = max(n + 1, needed_len)
