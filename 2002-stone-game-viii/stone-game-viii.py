@@ -20,6 +20,7 @@ class Solution(object):
         for i in range(n - 2, 0, -1):
             dp = max(dp, prefix[i] - dp)
         return dp
+        
 
 
         
