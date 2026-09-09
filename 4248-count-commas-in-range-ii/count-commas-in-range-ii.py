@@ -1,14 +1,15 @@
+
 class Solution(object):
     def countCommas(self, n):
         """
         :type n: int
         :rtype: int
         """
-        total = 0
-        power = 1000
-
-        while power <= n:
-            total += n - power + 1
-            power *= 1000
-
-        return total
+        ans = 0
+        start = 1000
+        
+        while start <= n:
+            ans += (n - start + 1)
+            start *= 1000
+            
+        return ans
